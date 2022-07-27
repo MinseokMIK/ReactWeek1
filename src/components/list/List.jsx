@@ -1,10 +1,14 @@
-import React from "react";
+import React from 'react';
+import './style.css';
 
-function List(){ //받아온 인풋값으로 제목, 내용
 
+function List(props){
     return(
         <div className="card">
-            
+            <div className="myItem">
+                <span style={{width: "250px"}}>props.todoList</span>
+                <span style={{width: "250px"}}>props.todoList</span>
+            </div>
         </div>
     )
 }

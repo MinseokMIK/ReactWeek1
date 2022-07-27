@@ -9,9 +9,6 @@ function App() {
     <div>
         <Header/>
         <Form/>
-        <h1>Working..🔥</h1>
-
-        <h1>Done...!🎉</h1>
     </div>
   );
 }
