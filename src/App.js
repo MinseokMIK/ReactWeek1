@@ -1,16 +1,17 @@
-import logo from './logo.svg';
-import './App.css';
-import React from 'react';
-import Header from './components/header/Header';
-import Form from './components/form/Form';
+import React from "react"
+
+import TodoList from "./pages/TodoList";
 
 function App() {
+  
   return (
+
     <div>
-        <Header/>
-        <Form/>
+      <TodoList/>
     </div>
-  );
+
+
+  )
 }
 
 export default App;

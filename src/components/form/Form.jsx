@@ -1,40 +1,55 @@
-import './style.css';
-import React, {useState} from 'react';
-import List from '../list/List';
+import React from "react";
+import { useState } from "react";
+import "./style.css";
 
-function Form(){
-    const [inText, setInText] = useState({
-        inTitle: '',
-        inContents: '',
-    });
+function Form({todoBoxes, setTodoBoxes}) {
 
-    const {inTitle, inContents} = inText;
+    const [title, setTitle] = useState("");
+    const [body, setBody] = useState("");
 
-    const onChange = (e) =>{
-        const {value, name} = e.target;
-        setInText({
-            ...inText,
-            [name]: value
-        });
-    };
-    const [todoList, setTodoList]=useState([])
-    const addItem =() =>{
-        setTodoList([...todoList,setTodoList])
-        console.log(setTodoList)
+    const writeTodo = () => {
+        if(title !== "" && body !== "") {
+            setTodoBoxes([...todoBoxes, 
+                {
+                    id: todoBoxes.length+1, 
+                    title: title, 
+                    body: body, 
+                    isDone: false
+                }
+            ]);
+            setTitle("")
+            setBody("")
+        } else {
+            alert("제목과 내용을 입력하세요!")
+        }
     }
+    
+    // console.log(todoBoxes)
 
-    return(
-        <div>
-            <div className='form'>
-                <span>제목</span>
-                <input name="inTitle" value ={inTitle} type="text" onChange={onChange}/>
-                <span>내용</span>
-                <input name="inContents" value ={inContents} type="text" onChange={onChange}/>
-                <button onClick={addItem}>추가</button>
+
+
+    return (
+        <div className="add_form">
+            <div className="input_group">
+                <label className="form_label">제목</label>
+                <input 
+                    type="text" 
+                    required
+                    value={title}
+                    onChange = {(e) => setTitle(e.target.value)}
+                    name="title" className="add_input input_body">
+                </input>
+                
+                <label className="form_label">내용</label>
+                <input 
+                    type="text"
+                    required
+                    value={body}
+                    onChange = {(e) => setBody(e.target.value)}
+                    name="body" className="add_input" >
+                </input>
             </div>
-            <h1>Working..🔥</h1>
-                <List todoList={todoList}/>
-            <h1>Done...!🎉</h1>
+            <button className="add_btn" onClick={writeTodo}>추가하기</button>
         </div>
     );
 }

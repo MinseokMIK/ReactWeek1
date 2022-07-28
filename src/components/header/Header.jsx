@@ -1,12 +1,14 @@
-import React from 'react';
-import './style.css';
-function Header(){
+import React from "react";
+import "./style.css";
 
-    return(
-    <div className='hat'>
-        <span className='title1'>My Todo List</span>
-        <span className='title2'> React</span>
-    </div>
+
+
+function Header() {
+    return (
+        <div className="container">
+            <div>Todo List Frago88</div>
+            <div>Made by React JS</div>
+        </div>
     );
 }
 
